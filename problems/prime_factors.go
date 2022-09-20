@@ -6,11 +6,27 @@ func PrimeFactors(n int) []int {
 		return []int{}
 	}
 	facts := make([]int, 0)
-	for i := 2; i*i <= n; i++ {
+
+	for n%2 == 0 {
+		facts = append(facts, 2)
+		n = n / 2
+	}
+
+	for n%3 == 0 {
+		facts = append(facts, 3)
+		n = n / 3
+	}
+
+	for i := 5; i*i <= n; i += 6 {
 
 		for n%i == 0 {
 			facts = append(facts, i)
 			n = n / i
+		}
+
+		for n%(i+2) == 0 {
+			facts = append(facts, i+2)
+			n = n / (i + 2)
 		}
 	}
 
