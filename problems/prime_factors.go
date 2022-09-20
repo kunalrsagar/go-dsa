@@ -30,7 +30,7 @@ func PrimeFactors(n int) []int {
 		}
 	}
 
-	if n > 1 {
+	if n > 3 {
 		facts = append(facts, n)
 	}
 	return facts
